@@ -1,0 +1,9 @@
+{
+  "name": "Rubiks Cube",
+  "version": "1.0.0",
+  "main": "scripts/main.js",
+  "type": "module",
+  "author": "Kevin Loeffler",
+  "license": "ISC",
+  "dependencies": {}
+}

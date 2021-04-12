@@ -1,3 +1,5 @@
+import {Time} from './time.js'
+
 // HTML
 const dMinutes = document.querySelector('#minutes')
 const dSeconds = document.querySelector('#seconds')
@@ -58,3 +60,10 @@ const updateTime = function (ticks) {
     // console.log('tenths: ' + tenths)
     dTenth.innerHTML = tenths.toString()
 }
+
+const currentTime = new Time(2)
+console.log(currentTime.print())
+
+// Init
+
+button.addEventListener('click', trigger)
