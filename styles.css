@@ -1,0 +1,28 @@
+:root {
+    --text-color: white;
+    --bkg-color: black;
+}
+
+/*
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-color: black;
+        --bkg-color: white;
+    }
+}
+*/
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bkg-color);
+}
+
+h1 {
+    font-size: 14px;
+}
+
+#time {
+    display: flex;
+    font-size: 40px;
+}
