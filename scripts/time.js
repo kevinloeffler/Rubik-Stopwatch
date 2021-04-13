@@ -26,7 +26,19 @@ export class Time {
     }
 
     print = function () {
-        return `${this.minutes}:${this.seconds}:${this.tenths}`
+        const m = this.minutes.toString().padStart(2, '0')
+        const s = this.seconds.toString().padStart(2, '0')
+        const t = this.tenths.toString().padStart(2, '0')
+        return `${m}:${s}:${t}`
+    }
+
+    reset = function (offset = 0) {
+        this.minutes = 0
+        this.seconds = 0
+        this.tenths = 0
+        for (const i in offset) {
+            this.tick()
+        }
     }
 
 }
