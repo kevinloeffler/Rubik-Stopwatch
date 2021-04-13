@@ -1,30 +1,31 @@
 import {Time} from './time.js'
+import {renderHistory, deleteHistory} from "./renderHistory.js";
 
 // HTML
 const dMinutes = document.querySelector('#minutes')
 const dSeconds = document.querySelector('#seconds')
 const dTenth = document.querySelector('#tenths')
-const button = document.querySelector('#trigger')
+const startStopBtn = document.querySelector('#startStop')
+const historyList = document.querySelector('#history')
 
 // Stopwatch
 let time = 2
 let interval
 let running = false
 
+const currentTime = new Time(2)
+
 const trigger = function () {
     if (running) {
-        // Manage time
         stopClock()
-        // updateTime(time)
+        renderHistory(historyList, currentTime)
         running = false
-        // Update View
-        button.innerHTML = 'Start'
+        startStopBtn.innerHTML = 'Start'
     } else {
-        // Manage Time
+        reset()
         startClock()
         running = true
-        // Update View
-        button.innerHTML = 'Pause'
+        startStopBtn.innerHTML = 'Pause'
     }
 }
 
@@ -37,33 +38,46 @@ const stopClock = function () {
 }
 
 const clock = function () {
-    time++
-    updateTime(time)
+    currentTime.tick()
+    dMinutes.innerHTML = currentTime.minutes.toString().padStart(2, '0')
+    dSeconds.innerHTML = currentTime.seconds.toString().padStart(2, '0')
+    dTenth.innerHTML = currentTime.tenths.toString()
 }
 
-// Display Time
-let minutes = 0
-let seconds = 0
-let tenths = 0
-
-const updateTime = function (ticks) {
-
-    minutes = Math.floor(ticks / 600)
-    // console.log('minutes: ' + minutes)
-    dMinutes.innerHTML = minutes.toString()
-
-    seconds = Math.floor((ticks - (minutes * 600)) / 10)
-    // console.log('seconds: ' + seconds)
-    dSeconds.innerHTML = seconds.toString()
-
-    tenths = Math.floor(ticks - (minutes * 600) - (seconds * 10))
-    // console.log('tenths: ' + tenths)
-    dTenth.innerHTML = tenths.toString()
+const reset = function () {
+    currentTime.reset(2)
+    dMinutes.innerHTML = currentTime.minutes.toString().padStart(2, '0')
+    dSeconds.innerHTML = currentTime.seconds.toString().padStart(2, '0')
+    dTenth.innerHTML = currentTime.tenths.toString()
 }
 
-const currentTime = new Time(2)
-console.log(currentTime.print())
+// Keyboard Input
+
+const deleteLastHistory = function () {
+    const lastTime = historyList.firstChild
+    lastTime.childNodes[1].style.opacity = '1'
+    console.log(lastTime.childNodes[1])
+    // historyList.firstChild.remove()
+}
+
+const enterKey = function () {
+
+}
+
+export const keyboardInput = {
+    ' ': trigger,
+    'x': deleteLastHistory,
+    'd': () => deleteHistory(historyList)
+}
+
+const logKey = function (e) {
+    try {
+        console.log('pressed: ' + e.key)
+        keyboardInput[e.key.toLowerCase()]()
+    } catch {}
+}
 
 // Init
 
-button.addEventListener('click', trigger)
+startStopBtn.addEventListener('click', trigger)
+document.addEventListener('keydown', logKey)
