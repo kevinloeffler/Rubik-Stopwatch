@@ -16,7 +16,6 @@ export function renderHistory (list, time) {
 
 export function deleteHistory (list) {
     while (list.firstChild) {
-        console.log('deleting List')
         list.removeChild(list.firstChild)
     }
 }

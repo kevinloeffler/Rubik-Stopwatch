@@ -7,6 +7,7 @@ const dSeconds = document.querySelector('#seconds')
 const dTenth = document.querySelector('#tenths')
 const startStopBtn = document.querySelector('#startStop')
 const historyList = document.querySelector('#history')
+const deleteAllIcon = document.querySelector('#delete-all-icon')
 
 // Stopwatch
 let time = 2
@@ -16,6 +17,7 @@ let running = false
 const currentTime = new Time(2)
 
 const trigger = function () {
+    viewReset()
     if (running) {
         stopClock()
         renderHistory(historyList, currentTime)
@@ -52,29 +54,54 @@ const reset = function () {
 }
 
 // Keyboard Input
+let lastInputCharacter = null
 
-const deleteLastHistory = function () {
+const viewDeleteLast = function () {
     const lastTime = historyList.firstChild
     lastTime.childNodes[1].style.opacity = '1'
-    console.log(lastTime.childNodes[1])
-    // historyList.firstChild.remove()
+}
+
+const viewDeleteAll = function () {
+    deleteAllIcon.style.opacity = '1'
+}
+
+const viewReset = function () {
+    try {
+        historyList.childNodes.forEach(n => n.childNodes[1].style.opacity = '0')
+        deleteAllIcon.style.opacity = '0'
+    } catch {
+        // null error if history is empty -> ignore
+    }
 }
 
 const enterKey = function () {
-
+    switch (lastInputCharacter) {
+        case 'x':
+            historyList.firstChild.remove()
+            break
+        case 'd':
+            deleteHistory(historyList)
+            break
+    }
 }
 
-export const keyboardInput = {
+const keyboardInput = {
     ' ': trigger,
-    'x': deleteLastHistory,
-    'd': () => deleteHistory(historyList)
+    'x': viewDeleteLast,
+    'd': viewDeleteAll,
+    'enter': enterKey,
 }
 
 const logKey = function (e) {
+    viewReset()
     try {
-        console.log('pressed: ' + e.key)
         keyboardInput[e.key.toLowerCase()]()
-    } catch {}
+    } catch (err) {
+        viewReset()
+    } finally {
+        lastInputCharacter = e.key.toLowerCase()
+
+    }
 }
 
 // Init
