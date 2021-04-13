@@ -21,10 +21,6 @@ body {
     line-height: 1em;
 }
 
-h1 {
-    font-size: 14px;
-}
-
 #time {
     display: flex;
     font-size: 40px;
@@ -49,9 +45,14 @@ h1 {
     padding: 6px 12px 2px;
     border-radius: 8px;
     opacity: 0;
+    transition: opacity 100ms;
 }
 
 .delete-icon span {
     display: inline-block;
     transform: translateY(2px);
+}
+
+.history-title {
+    display: inline-block;
 }

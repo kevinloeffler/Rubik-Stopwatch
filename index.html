@@ -10,17 +10,29 @@
 </head>
 <body>
 
-<h1>Stopwatch</h1>
-<div id="time">
-    <p id="minutes">00</p>
-    <p>:</p>
-    <p id="seconds">00</p>
-    <p>:</p>
-    <p id="tenths">0</p>
+<div class="time-block">
+    <div id="time">
+        <p id="minutes">00</p>
+        <p>:</p>
+        <p id="seconds">00</p>
+        <p>:</p>
+        <p id="tenths">0</p>
+    </div>
+    <button id="startStop">Start</button>
 </div>
-<button id="startStop">Start</button>
-<div id="history">
-    <!-- Dynamically created -->
+
+<div class="history-block">
+    <h3 class="history-title">Times</h3>
+    <div class="delete-icon" id="delete-all-icon">
+        <span>↵</span> to delete all
+    </div>
+    <div id="history">
+        <!-- Dynamically created -->
+    </div>
+</div>
+
+<div class="keyboard-block">
+
 </div>
 
 </body>
