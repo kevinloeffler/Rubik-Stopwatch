@@ -1,6 +1,7 @@
 :root {
     --text-color: white;
     --bkg-color: black;
+    --warning-color: #e52270;
 }
 
 /*
@@ -16,6 +17,8 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--text-color);
     background-color: var(--bkg-color);
+    padding: 50px;
+    line-height: 1em;
 }
 
 h1 {
@@ -25,4 +28,30 @@ h1 {
 #time {
     display: flex;
     font-size: 40px;
+}
+
+#history {
+    margin-top: 20px;
+}
+
+.time-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.delete-icon {
+    font-size: 12px;
+    display: inline-block;
+    height: 20px;
+    background-color: var(--warning-color);
+    margin-left: 10px;
+    padding: 6px 12px 2px;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+.delete-icon span {
+    display: inline-block;
+    transform: translateY(2px);
 }
