@@ -15,10 +15,18 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
     color: var(--text-color);
     background-color: var(--bkg-color);
     padding: 50px;
     line-height: 1em;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
 }
 
 #time {
