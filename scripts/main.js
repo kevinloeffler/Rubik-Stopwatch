@@ -5,7 +5,7 @@ import {renderHistory, deleteHistory} from "./renderHistory.js";
 const dMinutes = document.querySelector('#minutes')
 const dSeconds = document.querySelector('#seconds')
 const dTenth = document.querySelector('#tenths')
-const startStopBtn = document.querySelector('#startStop')
+const startStopBtn = document.querySelector('#start-stop')
 const historyList = document.querySelector('#history')
 const deleteAllIcon = document.querySelector('#delete-all-icon')
 
