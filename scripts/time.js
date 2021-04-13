@@ -4,12 +4,6 @@ export class Time {
     seconds = 0
     tenths = 0
 
-    constructor(offset) {
-        for (const i in offset) {
-            this.tick()
-        }
-    }
-
     tick = function () {
         if (this.tenths === 9) {
             if (this.seconds === 59) {
@@ -32,13 +26,10 @@ export class Time {
         return `${m}:${s}:${t}`
     }
 
-    reset = function (offset = 0) {
+    reset = function () {
         this.minutes = 0
         this.seconds = 0
         this.tenths = 0
-        for (const i in offset) {
-            this.tick()
-        }
     }
 
 }

@@ -10,11 +10,10 @@ const historyList = document.querySelector('#history')
 const deleteAllIcon = document.querySelector('#delete-all-icon')
 
 // Stopwatch
-let time = 2
 let interval
 let running = false
 
-const currentTime = new Time(2)
+const currentTime = new Time()
 
 const trigger = function () {
     viewReset()
@@ -47,7 +46,7 @@ const clock = function () {
 }
 
 const reset = function () {
-    currentTime.reset(2)
+    currentTime.reset()
     dMinutes.innerHTML = currentTime.minutes.toString().padStart(2, '0')
     dSeconds.innerHTML = currentTime.seconds.toString().padStart(2, '0')
     dTenth.innerHTML = currentTime.tenths.toString()
