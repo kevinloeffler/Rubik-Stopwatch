@@ -1,7 +1,9 @@
 :root {
     --text-color: white;
-    --bkg-color: black;
+    --bkg-color: #131313;
+    --window-color: #101010;
     --warning-color: #e52270;
+    --line-color: #1c1c1c;
 }
 
 /*
@@ -19,7 +21,7 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     color: var(--text-color);
-    background-color: var(--bkg-color);
+    background-color: var(--window-color);
     padding: 50px;
     line-height: 1em;
 }
@@ -29,10 +31,33 @@ ul {
     list-style: none;
 }
 
+/*** Time Block ***/
+
+.time-block {
+    padding: 60px;
+    background-color: var(--bkg-color);
+    border: solid 2px var(--line-color);
+    border-radius: 20px;
+}
+
 #time {
     display: flex;
     font-size: 40px;
 }
+
+#time p {
+    margin: 0;
+    line-height: 1em;
+}
+
+#start-stop {
+    width: 120px;
+    height: 120px;
+    border: solid 2px var(--warning-color);
+    border-radius: 100%;
+}
+
+/*** History Block ***/
 
 #history {
     margin-top: 20px;
@@ -64,3 +89,5 @@ ul {
 .history-title {
     display: inline-block;
 }
+
+/*** Keyboard Block ***/
