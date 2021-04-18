@@ -4,21 +4,25 @@ import view from './view.js';
 function triggerStartStop () {
     if (!stopwatch.state) {
         stopwatch.startTime()
-        view.renderStartStopButton(false)
+        view.renderStartStopButton('STOP')
         console.log('Started Clock')
     } else if (stopwatch.state) {
         stopwatch.stopTime()
         model.addItem(stopwatch.getTime())
         view.renderNewItem(stopwatch.getTime())
-        view.renderStartStopButton(true)
+        view.renderStartStopButton('START')
         console.log('Stopped Clock')
     }
 }
 
 function triggerUiButton (buttonID) {
-    const button = document.querySelector(`#${buttonID}`)
-    view.renderUnselectButton()
-    view.renderButton(button)
+    if (model.getHistoryLength()) {
+        const button = document.querySelector(`#${buttonID}`)
+        view.renderUnselectButton()
+        view.renderButton(button)
+    } else {
+        model.activeModifier = null
+    }
 }
 
 function handleEnterKey () {
@@ -27,6 +31,7 @@ function handleEnterKey () {
 }
 
 function removeLastItem () {
+    console.log('log')
     model.deleteLastItem()
     view.renderDeleteLastItem()
 }
