@@ -28,13 +28,12 @@ const view = {
     },
 
     renderButton: (button) => {
-        console.log(button)
         button.classList.remove('ui-button-inactive')
     },
 
     renderUnselectButton: () => {
-        console.log(uiButtons.childNodes)
         for (const button of uiButtons.childNodes) {
+            if (button.nodeName === 'BUTTON')
             button.classList.add('ui-button-inactive')
         }
     },
