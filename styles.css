@@ -1,9 +1,13 @@
 :root {
     --text-color: white;
-    --bkg-color: #131313;
-    --window-color: #101010;
-    --warning-color: #e52270;
-    --line-color: #1c1c1c;
+    --bkg-color: #121212;
+    --surface: #171717;
+    --gray: #1c1c1c;
+    --red: #C5363F;
+    --blue: #446698;
+    --green: 4F7D43;
+    --shadow: 2px 2px 10px 5px #000000 75%;
+
 }
 
 /*
@@ -15,15 +19,48 @@
 }
 */
 
+/* Typography */
+/* source-sans-pro-regular - latin */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+    url('./typography/source-sans-pro-v14-latin-regular.woff2') format('woff2'),
+    url('./typography/source-sans-pro-v14-latin-regular.woff') format('woff');
+}
+/* source-sans-pro-600 - latin */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+    url('./typography/source-sans-pro-v14-latin-600.woff2') format('woff2'),
+    url('./typography/source-sans-pro-v14-latin-600.woff') format('woff');
+}
+/* source-sans-pro-700 - latin */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url('./typography/source-sans-pro-v14-latin-700.woff2') format('woff2'),
+    url('./typography/source-sans-pro-v14-latin-700.woff') format('woff');
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1em;
+
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+
     color: var(--text-color);
-    background-color: var(--window-color);
-    padding: 50px;
-    line-height: 1em;
+    background-color: var(--bkg-color);
+    padding: 44px;
 }
 
 ul {
@@ -42,7 +79,7 @@ ul {
 .time-block {
     padding: 60px;
     background-color: var(--bkg-color);
-    border: solid 2px var(--line-color);
+    border: solid 2px var(--gray);
     border-radius: 20px;
 }
 
@@ -59,7 +96,7 @@ ul {
 #start-stop {
     width: 120px;
     height: 120px;
-    border: solid 2px var(--warning-color);
+    border: solid 2px var(--red);
     border-radius: 100%;
 }
 
@@ -79,7 +116,7 @@ ul {
     font-size: 12px;
     display: inline-block;
     height: 20px;
-    background-color: var(--warning-color);
+    background-color: var(--red);
     margin-left: 10px;
     padding: 6px 12px 2px;
     border-radius: 8px;
