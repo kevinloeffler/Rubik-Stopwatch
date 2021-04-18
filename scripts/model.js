@@ -4,21 +4,27 @@ let modelHistory = []
 
 export const model = {
 
-    addItem: (item) => {
+    activeModifier: null,
+
+    addItem: function (item) {
         modelHistory.unshift(item)
         console.log(modelHistory)
     },
 
-    returnLastItem: () => {
-        return modelHistory[1]
+    returnLastItem: function () {
+        return modelHistory[0]
     },
 
-    deleteLastItem: () => {
+    deleteLastItem: function () {
         modelHistory.shift()
+        this.activeModifier = null
+        console.log('Last Item Deleted')
     },
 
-    deleteAllItems: () => {
+    deleteAllItems: function () {
         modelHistory = []
+        this.activeModifier = null
+        console.log('All Items Deleted')
     }
 }
 
