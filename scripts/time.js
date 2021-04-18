@@ -1,8 +1,11 @@
-export class Time {
+class Time {
 
-    minutes = 0
-    seconds = 0
-    tenths = 0
+constructor () {
+    console.log('New Time Object created')
+    this.minutes = 0
+    this.seconds = 0
+    this.tenths = 0
+}
 
     tick = function () {
         if (this.tenths === 9) {
@@ -33,3 +36,5 @@ export class Time {
     }
 
 }
+
+export default Time
