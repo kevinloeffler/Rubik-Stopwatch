@@ -9,6 +9,7 @@ function triggerStartStop () {
     } else if (stopwatch.state) {
         stopwatch.stopTime()
         model.addItem(stopwatch.getTime())
+        view.renderNewItem(stopwatch.getTime())
         view.renderStartStopButton(true)
         console.log('Stopped Clock')
     }
@@ -24,6 +25,16 @@ function handleEnterKey () {
     modifierKeys[model.activeModifier.toUpperCase()]()
 }
 
+function removeLastItem () {
+    model.deleteLastItem()
+    view.renderDeleteLastItem()
+}
+
+function removeAllItems () {
+    model.deleteAllItems()
+    view.renderClearList()
+}
+
 const validKeys = {
     ' ': triggerStartStop,
     'X': () => triggerUiButton('delete-button'),
@@ -32,8 +43,8 @@ const validKeys = {
 }
 
 const modifierKeys = {
-    'X': () => model.deleteLastItem(),
-    'D': () => model.deleteAllItems(),
+    'X': () => removeLastItem(),
+    'D': () => removeAllItems(),
 }
 
 function keyPress (k) {
