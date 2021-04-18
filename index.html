@@ -5,8 +5,7 @@
     <title>Stopwatch</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="scripts/main.js" defer></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">-->
 </head>
 <body>
 
@@ -18,11 +17,18 @@
         <p>:</p>
         <p id="tenths">0</p>
     </div>
-    <button id="start-stop">Start</button>
+    <div id="start-stop">
+        <div>START</div>
+        <div>PRESS SPACE</div>
+    </div>
 </div>
 
 <div class="history-block">
-    <h3 class="history-title">Times</h3>
+    <div id="ui-buttons">
+        <button id="delete-button" class="ui-button-inactive">X to delete</button>
+        <button id="delete-all-button" class="ui-button-inactive">M to delete all</button>
+        <button id="enter-button" class="ui-button-inactive">ENTER to confirm</button>
+    </div>
     <div class="delete-icon" id="delete-all-icon">
         <span>↵</span> to delete all
     </div>
