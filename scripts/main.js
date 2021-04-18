@@ -22,6 +22,7 @@ function triggerUiButton (buttonID) {
 }
 
 function handleEnterKey () {
+    view.renderUnselectButton()
     modifierKeys[model.activeModifier.toUpperCase()]()
 }
 
@@ -54,6 +55,7 @@ function keyPress (k) {
         }
         validKeys[k.key.toUpperCase()]()
     } catch (err) {
+        view.renderUnselectButton()
         // Throws an error if not a valid key -> Ignored
     }
 }
