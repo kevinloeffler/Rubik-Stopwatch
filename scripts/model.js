@@ -15,6 +15,10 @@ export const model = {
         return modelHistory[0]
     },
 
+    getHistoryLength: function () {
+        return modelHistory.length
+    },
+
     deleteLastItem: function () {
         modelHistory.shift()
         this.activeModifier = null
