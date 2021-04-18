@@ -33,7 +33,7 @@ const view = {
 
     renderUnselectButton: () => {
         for (const button of uiButtons.childNodes) {
-            if (button.nodeName === 'BUTTON')
+            if (button.nodeName === 'DIV')
             button.classList.add('ui-button-inactive')
         }
     },
