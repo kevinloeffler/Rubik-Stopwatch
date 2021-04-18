@@ -5,6 +5,7 @@ const dTenth = document.querySelector('#tenths')
 const startStopBtn = document.querySelector('#start-stop')
 const historyList = document.querySelector('#history')
 const uiButtons = document.querySelector('#ui-buttons')
+const enterButton = document.querySelector('#enter-button')
 
 const view = {
 
@@ -39,12 +40,14 @@ const view = {
 
     renderButton: (button) => {
         button.classList.remove('ui-button-inactive')
+        enterButton.classList.remove('ui-button-inactive')
     },
 
     renderUnselectButton: () => {
         for (const button of uiButtons.childNodes) {
-            if (button.nodeName === 'DIV')
-            button.classList.add('ui-button-inactive')
+            if (button.nodeName === 'DIV') {
+                button.classList.add('ui-button-inactive')
+            }
         }
     },
 
