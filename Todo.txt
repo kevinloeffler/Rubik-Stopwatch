@@ -1,0 +1,7 @@
+Tasks:
+- Logo size and position
+- Correct time drift (~1s / min to slow)
+- Responsive: Mobile version
+- Start / Stop button effect when running
+- Style UI button (more neumorphic)
+- Add reflection to panels (time and history) to simulate a glass cover
