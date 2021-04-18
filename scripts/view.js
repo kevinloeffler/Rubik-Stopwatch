@@ -27,6 +27,16 @@ const view = {
         historyList.prepend(newItem)
     },
 
+    renderDeleteLastItem: () => {
+        historyList.firstChild.remove()
+    },
+
+    renderClearList: () => {
+        while (historyList.firstChild) {
+            historyList.firstChild.remove()
+        }
+    },
+
     renderButton: (button) => {
         button.classList.remove('ui-button-inactive')
     },
