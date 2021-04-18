@@ -10,9 +10,9 @@ const enterButton = document.querySelector('#enter-button')
 const view = {
 
     renderTime: (time) => {
-        dMinutes.innerHTML = time.minutes
-        dSeconds.innerHTML = time.seconds
-        dTenth.innerHTML = time.tenths
+        dMinutes.innerHTML = time.minutes.toString().padStart(2, '0')
+        dSeconds.innerHTML = time.seconds.toString().padStart(2, '0')
+        dTenth.innerHTML = time.tenths.toString()
     },
 
     renderNewItem: (time) => {
