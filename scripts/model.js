@@ -1,4 +1,5 @@
 import Time from './time.js';
+import view from './view.js'
 
 let modelHistory = []
 
@@ -45,6 +46,7 @@ export const stopwatch = {
 
         function clock() {
             localTime.tick()
+            view.renderTime(localTime)
         }
 
         interval = setInterval(clock, 100)
@@ -55,18 +57,6 @@ export const stopwatch = {
     stopTime: function () {
         clearInterval(interval)
         this.state = false
-    },
-
-    getMinutes: function () {
-        return currentTime.minutes
-    },
-
-    getSeconds: function () {
-        return currentTime.seconds
-    },
-
-    getTenths: function () {
-        return currentTime.seconds
     },
 
     getTime: function () {
