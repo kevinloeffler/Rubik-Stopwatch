@@ -33,6 +33,12 @@ ul {
 
 /*** Time Block ***/
 
+.ui-button-inactive {
+    color: gray;
+}
+
+/* Old */
+
 .time-block {
     padding: 60px;
     background-color: var(--bkg-color);
