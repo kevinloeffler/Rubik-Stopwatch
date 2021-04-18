@@ -41,16 +41,24 @@ function removeAllItems () {
     view.renderClearList()
 }
 
+function markLastItem () {
+    const state = model.returnLastItem().mark
+    model.markLastItem(state)
+    view.renderMarkedItem(state)
+}
+
 const validKeys = {
     ' ': triggerStartStop,
     'X': () => triggerUiButton('delete-button'),
     'D': () => triggerUiButton('delete-all-button'),
+    'M': () => triggerUiButton('mark-button'),
     'ENTER': () => handleEnterKey(),
 }
 
 const modifierKeys = {
     'X': () => removeLastItem(),
     'D': () => removeAllItems(),
+    'M': () => markLastItem(),
 }
 
 function keyPress (k) {

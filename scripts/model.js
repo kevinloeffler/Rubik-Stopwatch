@@ -30,7 +30,11 @@ export const model = {
         modelHistory = []
         this.activeModifier = null
         console.log('All Items Deleted')
-    }
+    },
+
+    markLastItem: function (state) {
+        this.returnLastItem().mark = !state;
+    },
 }
 
 let interval

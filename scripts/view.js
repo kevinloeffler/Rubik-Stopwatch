@@ -19,6 +19,9 @@ const view = {
         const newItem = document.createElement('div')
         newItem.setAttribute('class', 'history-item')
         newItem.innerText = time.print()
+        const flag = document.createElement('div')
+        flag.setAttribute('class', 'history-item-flag')
+        newItem.appendChild(flag)
         historyList.prepend(newItem)
     },
 
@@ -30,6 +33,15 @@ const view = {
         while (historyList.firstChild) {
             historyList.firstChild.remove()
         }
+    },
+
+    renderMarkedItem: (state) => {
+        if (!state) {
+            historyList.firstChild.childNodes[1].classList.add('history-item-marked')
+        } else {
+            historyList.firstChild.childNodes[1].classList.remove('history-item-marked')
+        }
+        console.log('marked')
     },
 
     renderButton: (button) => {

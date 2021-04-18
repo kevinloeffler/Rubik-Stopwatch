@@ -5,6 +5,7 @@ constructor () {
     this.minutes = 0
     this.seconds = 0
     this.tenths = 0
+    this.marked = false
 }
 
     tick = function () {
