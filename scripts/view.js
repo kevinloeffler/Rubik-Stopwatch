@@ -52,11 +52,7 @@ const view = {
     },
 
     renderStartStopButton: (state) => {
-        if (!state) {
-            startStopBtn.childNodes[1].textContent = 'PAUSE'
-        } else if (state) {
-            startStopBtn.childNodes[1].textContent = 'START'
-        }
+        startStopBtn.childNodes[1].textContent = state
     }
 
 }
