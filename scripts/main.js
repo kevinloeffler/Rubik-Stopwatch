@@ -2,6 +2,7 @@ import {model, stopwatch} from './model.js'
 import view from './view.js';
 
 function triggerStartStop () {
+    view.renderUnselectButton()
     if (!stopwatch.state) {
         stopwatch.startTime()
         view.renderStartStopButton('STOP')
